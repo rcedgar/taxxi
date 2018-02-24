@@ -1,0 +1,47 @@
+#!/bin/bash
+
+name=$1
+
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+traindir=../train/rdp/$name
+
+mkdir -p ../raw/rdp
+
+raw=../raw/rdp/$name
+
+if [ -d $traindir ] ; then
+	echo === found traindir=$traindir =====
+else
+	echo
+	echo =========================================
+	echo rdp_train_utax2 $trainfa $traindir
+	echo =========================================
+
+	mkdir -p $traindir
+
+	rdp_train_utax2 $trainfa $traindir
+fi
+
+echo =========================================
+echo rdp_trained $testfa $traindir $raw
+echo =========================================
+
+rdp_trained $testfa $traindir $raw
+
+mkdir -p ../pred/rdp50
+mkdir -p ../pred/rdp80
+
+python2 $r/py/rdpc2tab3.py $raw 50 > ../pred/rdp50/$name
+python2 $r/py/rdpc2tab3.py $raw 80 > ../pred/rdp80/$name

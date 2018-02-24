@@ -1,0 +1,45 @@
+#!/bin/bash
+
+name=$1
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+traindir=../train/met/$name
+mkdir -p $traindir
+
+rawdir=../raw/met
+mkdir -p $rawdir
+raw=$rawdir/$name
+
+preddir=../pred/met
+mkdir -p $preddir
+
+pred=$preddir/$name
+
+if [ -s $pred ] ; then
+	ls -lh $pred
+	echo Skipping existing pred=$pred
+	exit 0
+fi
+
+python2 /zip_e/r/py/fasta_utax2_to_metaxa2.py $trainfa $traindir/db.fa $traindir/tax.txt
+
+metaxa2_dbb -b $traindir/db.fa -o $traindir/outdb -t $traindir/tax.txt --auto_rep T \
+  --cpu 6 --mode divergent # > stdout_train.txt 2> stderr_train.txt
+
+metaxa2 -i $testfa -d $traindir/outdb/blast -p $traindir/outdb/HMMs \
+  -o $traindir/results -cpu 6 # > stdout_test.txt 2> stderr_test.txt
+
+cat $traindir/results.taxonomy.txt > $raw
+
+python2 /zip_e/r/py/metaxa2tab.py $raw $testfa > $pred

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+name=$1
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+traindir=../train/blca/$name
+mkdir -p $traindir
+
+rawdir=../raw/blca
+mkdir -p $rawdir
+raw=$rawdir/$name
+
+preddir=../pred/blca
+mkdir -p $preddir
+
+pred=$preddir/$name
+
+if [ -s $pred ] ; then
+	ls -lh $pred
+	echo Skipping existing pred=$pred
+	exit 0
+fi
+
+export PATH=/p/sw/blast2.5.0:$PATH
+
+if [ ! -s $traindir/db.nsq ] ; then
+	python2 /zip_e/r/py/fasta_utax2_to_blca.py $trainfa $traindir/db.fa $traindir/tax.txt
+	makeblastdb -in $traindir/db.fa -dbtype nucl -parse_seqids -out $traindir/db
+fi
+
+python2 /zip_e/r/py/fasta_utax2_to_blca.py $testfa $traindir/q.fa $traindir/qtax.txt
+
+python2 /p/sw/blca/2.blca_main.py -i $traindir/q.fa -r $traindir/tax.txt -q $traindir/db
+
+cat $traindir/q.fa.blca.out > $raw
+
+python2 /zip_e/r/py/blca2tab.py $raw $testfa > $pred

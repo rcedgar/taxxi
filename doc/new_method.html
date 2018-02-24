@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<!--START_MANUAL7_HEAD-->
+<head>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>TAXXI</title>
+    <link rel="stylesheet" type="text/css" href="https://drive5.com/styles11.css">
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50117757-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body style="background-color:#c0c0c0;">
+
+<div style="position:absolute; top:45px; left:20px; width:830px; background-color:#ffffff; border-width:10px; border-style:solid;border-color:white;" class="ManText">
+<!--END_MANUAL7_HEAD-->
+	<span class="ManTopic">How to test a new method on TAXXI</span>
+<hr>
+	<br>To test a new method, you need to create your own method wrapper script 
+	similar to those in the benchmark/methods directory.<br><br>The script can 
+	be written in any convenient language, including a compiled language such as 
+	Java, C or C++, if you prefer. The requirement is that there is an 
+	executable file in methods/
+<!--MANUAL7_FOOT-->
+	with the name of your method. There is one command-line argument, which is 
+	the name of the test set, so it is invoked like this:<br><br>
+	<span class="ManCode">./my_method ten_16s_v4.97</span><br><br>The input data 
+	is the FASTA files for the test and training sets:<br><br>.<span class="ManCode">./testfa/ten_16s_v4.97<br>
+	../trainfa/ten_16s_v4.97</span><br><br>Typically, the method script converts 
+	from TAXXI format to the native file format(s) for the method.<br><br>Output 
+	must be written to a file named ../pred/<em>methodname</em>/<em>setname</em>, 
+	e.g.:<br><br><span class="ManCode">../pred/my_method/ten_16s_v4.97<br><br>
+	</span><span class="ManText">The format of the output file must be as 
+	follows: tab-separated text with two fields (1) the query label, (2) the 
+	prediction. The query label must exactly as the defline of the FASTA file 
+	for the test set, including the tax= annotation giving the correct taxonomy. 
+	The prediction must be formatted in the same way without the tax= or the 
+	closing semi-colon.<br>&nbsp;</span></div>
+</body>
+</html>

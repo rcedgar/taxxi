@@ -1,0 +1,20 @@
+#!/bin/bash
+
+method=$1
+
+cd ../methods
+
+if [ ! -x $1 ] ; then
+	echo Not found ../$1
+fi
+
+rm -f ../metrics/*$1*
+
+for set in `cat ../info/sets_taxxi.txt`
+do
+	./$method $set
+done
+
+cd ../scripts
+./metrics_method $1
+./metrics_table

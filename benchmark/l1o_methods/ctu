@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p ../pred/ctu
+
+$u64 -cons_tax ../ref/$1 -db ../ref/$1 -strand plus -tabbedout ../pred/ctu/$1 \
+  -self -strand plus -id 0.7 -maxaccepts 3 -maxrejects 8 -maj 0.51

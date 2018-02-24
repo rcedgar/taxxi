@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p ../pred/ctv
+
+$u64 -cons_tax ../ref/$1 -db ../ref/$1 -strand plus -tabbedout ../pred/ctv/$1 \
+  -self -strand plus -id 0.7 -maxaccepts 10 -maxrejects 32 -maj 0.51

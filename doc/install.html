@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<!--START_MANUAL7_HEAD-->
+<head>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>TAXXI</title>
+    <link rel="stylesheet" type="text/css" href="https://drive5.com/styles11.css">
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50117757-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body style="background-color:#c0c0c0;">
+
+<div style="position:absolute; top:45px; left:20px; width:830px; background-color:#ffffff; border-width:10px; border-style:solid;border-color:white;" class="ManText">
+<!--END_MANUAL7_HEAD-->
+	<span class="ManTopic">How to install and run TAXXI</span>
+<hr>
+	<br>Download the files under the benchmark/ directory. You will find the 
+	following sub-directories:<br><br>&nbsp;<strong> l1o_methods\</strong>&nbsp; 
+	Wrapper scripts for leave-one-out methods<br>&nbsp; <strong>info\</strong> 
+	Miscellaneous information.<br>&nbsp; <strong>methods\</strong>&nbsp;
+	<a href="methods_index.html">Method scripts</a>.<br>&nbsp; <strong>metrics\</strong>&nbsp; 
+	Output directory for metrics.<br>&nbsp; <strong>pred\</strong>&nbsp; Output 
+	directory for method predictions.<br>&nbsp; <strong>py\</strong>&nbsp;
+	<a href="py_index.html">Python scripts</a>.<br>&nbsp; <strong>scripts\</strong>&nbsp;
+	<a href="scripts_index.html">Bash scripts</a>.<br>&nbsp; <strong>testfa\</strong>&nbsp; 
+	FASTA files for test sets.<br>&nbsp; <strong>trainfa\</strong>&nbsp; FASTA 
+	files for training sets.<br><br>The py/ directory should be added to your 
+	shell PATH.<br><br>To run a method on a given test set, change to the 
+	methods/ directory and run ./<em>methodname testsetname</em>, e.g.:<br><br>
+	<span class="ManCode">./blca ten_16s_v35.97<br><br></span>
+	<span class="ManText">Methods, e.g. BLCA, should be installed per the 
+	instructions for each method. Some TAXXI method scripts must be edited to 
+	reflect the installation on your computer. For example, the blcs method 
+	script invokes BLCA like this:</span><span class="ManText"><br><br></span>
+	<span class="ManCode">python2 /p/sw/blca/2.blca_main.py -i $traindir/q.fa -r 
+	$traindir/tax.txt -q $traindir/db<br></span><span class="ManText"><br>Here, 
+	you must replace /p/sw/blca by the directory where BLCA is installed on your 
+	machine.<br><br>To run a method on all test sets and update the metrics 
+	table, change to the scripts/ directory and run ./run_method <em>methodname</em>, 
+	e.g.:<br><br></span><span class="ManCode">./run_method blca</span><span class="ManText"><br>
+	<br>To run all methods, calculate all metrics and build the metrics table, 
+	change to the scripts/ directory and run:<br><br></span>
+	<span class="ManCode">./run_methods<br>./metrics<br>./metrics_table</span><span class="ManText"><br>&nbsp;
+	</span>
+</div>
+</body>
+</html>

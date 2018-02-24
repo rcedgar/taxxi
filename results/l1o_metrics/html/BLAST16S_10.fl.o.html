@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TAXXI Benchmark</title>
+
+<style>
+    body {
+        font-family: Helvetica, Arial;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #3b3b3b;
+        font-smoothing: antialiased;
+        background: #c0c0c0;
+    }
+
+    .wrapper {
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 800px;
+        text-align: left;
+    }
+    .tabletitle {
+        font-family: Helvetica, Arial;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #000000;
+        text-align: left;
+		}
+
+    .table {
+        margin: 0 0 10px 0;
+        box-shadow: 0 1px 16px #2980b9;
+        display: table;
+        text-align: center;
+    }
+
+.row {
+    display: table-row;
+    background: #ffffff;
+}
+
+.row:nth-of-type(odd) {
+    background: #e0e0e0;
+}
+
+.row.header {
+    font-weight: 700;
+    color: #ffffff;
+    background: #2980b9;
+}
+
+.yellow_link {
+	text-decoration: underline;
+	background-color: yellow;
+}
+
+@media screen and (max-width: 580px) {
+    .row {
+        padding: 8px 0;
+        display: block;
+    }
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<a class="yellow_link" href="https://drive5.com/taxxi">TAXXI benchmark home</a><br><br>
+<div class="tabletitle">Leave-one-out metrics BLAST16S_10 fl order</div><br>
+<div class="table">
+  <div class="row header">
+    <div class="cell">TPR</div>
+    <div class="cell">UCR</div>
+    <div class="cell">MCR</div>
+    <div class="cell">OCR</div>
+    <div class="cell">Acc_RDP</div>
+    <div class="cell">Acc</div>
+    <div class="cell">Method</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.3</div>
+    <div class="cell">0.2</div>
+    <div class="cell">0.5</div>
+    <div class="cell">59.3</div>
+    <div class="cell">99.0</div>
+    <div class="cell">99.1</div>
+    <div class="cell">NBC50</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.4</div>
+    <div class="cell">0.0</div>
+    <div class="cell">0.6</div>
+    <div class="cell">100.0</div>
+    <div class="cell">99.0</div>
+    <div class="cell">99.0</div>
+    <div class="cell">NBC0</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.3</div>
+    <div class="cell">0.0</div>
+    <div class="cell">0.7</div>
+    <div class="cell">100.0</div>
+    <div class="cell">99.0</div>
+    <div class="cell">99.0</div>
+    <div class="cell">TOP</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.1</div>
+    <div class="cell">0.6</div>
+    <div class="cell">0.3</div>
+    <div class="cell">29.6</div>
+    <div class="cell">98.7</div>
+    <div class="cell">99.0</div>
+    <div class="cell">NBC80</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.3</div>
+    <div class="cell">0.0</div>
+    <div class="cell">0.7</div>
+    <div class="cell">100.0</div>
+    <div class="cell">98.9</div>
+    <div class="cell">98.9</div>
+    <div class="cell">KTOP</div>
+  </div>
+  <div class="row">
+    <div class="cell">99.2</div>
+    <div class="cell">0.0</div>
+    <div class="cell">0.8</div>
+    <div class="cell">100.0</div>
+    <div class="cell">98.9</div>
+    <div class="cell">98.9</div>
+    <div class="cell">SINTAX0</div>
+  </div>
+  <div class="row">
+    <div class="cell">98.7</div>
+    <div class="cell">1.0</div>
+    <div class="cell">0.3</div>
+    <div class="cell">11.1</div>
+    <div class="cell">98.3</div>
+    <div class="cell">98.6</div>
+    <div class="cell">SINTAX50</div>
+  </div>
+  <div class="row">
+    <div class="cell">98.8</div>
+    <div class="cell">0.2</div>
+    <div class="cell">1.0</div>
+    <div class="cell">81.5</div>
+    <div class="cell">98.4</div>
+    <div class="cell">98.5</div>
+    <div class="cell">CT1</div>
+  </div>
+  <div class="row">
+    <div class="cell">97.2</div>
+    <div class="cell">2.5</div>
+    <div class="cell">0.3</div>
+    <div class="cell">7.4</div>
+    <div class="cell">96.9</div>
+    <div class="cell">97.2</div>
+    <div class="cell">SINTAX80</div>
+  </div>
+  <div class="row">
+    <div class="cell">96.5</div>
+    <div class="cell">1.9</div>
+    <div class="cell">1.6</div>
+    <div class="cell">44.4</div>
+    <div class="cell">96.2</div>
+    <div class="cell">96.3</div>
+    <div class="cell">CT2</div>
+  </div>
+
+</div>
+<br>
+</div>
+</body>
+</html>

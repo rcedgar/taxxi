@@ -1,0 +1,39 @@
+#!/bin/bash
+
+name=$1
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+traindir=../train/btop/$name
+mkdir -p $traindir
+
+rawdir=../raw/btop
+mkdir -p $rawdir
+raw=$rawdir/$name
+
+preddir=../pred/btop
+mkdir -p $preddir
+
+pred=$preddir/$name
+
+if [ -s $pred ] ; then
+	ls -lh $pred
+	echo Skipping existing pred=$pred
+	exit 0
+fi
+
+sed "-es/;.*//" < $trainfa > $traindir/db.fa
+makeblastdb -in $traindir/db.fa -dbtype nucl -parse_seqids -out $traindir/db
+
+blastn -task megablast -db $traindir/db -query $testfa -num_threads 10 \
+  -max_target_seqs 1 -outfmt "6 qseqid sseqid" -evalue 0.01 > $raw

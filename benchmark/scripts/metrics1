@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set=$1
+method=$2
+rank=$3
+
+if [ x$rank == x ] ; then
+	echo Missing rank >> /dev/stderr
+	exit 1
+fi
+
+mkdir -p ../metrics
+
+out=../metrics/$set.$method.$rank
+
+if [ -s $out ] ; then
+	echo === Skipping $out ===
+	exit
+fi
+
+echo === metrics set=$set method=$method rank=$rank ===
+
+taxbenchx.py $set $method $rank > ../metrics/$set.$method.$rank

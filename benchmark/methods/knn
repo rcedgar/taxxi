@@ -1,0 +1,32 @@
+#!/bin/bash
+
+name=$1
+
+preddir=`realpath ../pred/knn`
+mkdir -p $preddir
+pred=$preddir/$name
+
+rawdir=`realpath ../raw/knn`
+mkdir -p $rawdir
+raw=$rawdir/$name
+
+mkdir -p ../train/knn/$name
+traindir=`realpath ../train/knn/$name`
+rm -rf $traindir
+mkdir -p $traindir
+
+q=`realpath ../testfa/$name`
+db=`realpath ../trainfa/$name`
+
+cd $traindir
+
+cp $q q.fa
+
+mothur_make_taxtrainfiles.py $db dbmot.fa dbtax.txt
+
+$mothur "#classify.seqs(fasta=q.fa, template=dbmot.fa, taxonomy=dbtax.txt, \
+  method=knn, processors=6)" > $tmpdir/stdout.txt 2> $tmpdir/stderr.txt
+
+/bin/cp -v q.dbtax.knn.taxonomy $raw
+
+python2 $r/py/motknn2utax2.py $raw > $pred

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir -p ../raw/sintax
+mkdir -p ../pred/sintax0
+mkdir -p ../pred/sintax50
+mkdir -p ../pred/sintax80
+
+$u64 -sintax ../ref/$1 -db ../ref/$1 -strand plus -tabbedout ../raw/sintax/$1 -self -threads 6
+
+python $r/py/bbc_cutoff.py ../raw/sintax/$1 0.0 > ../pred/sintax0/$1
+python $r/py/bbc_cutoff.py ../raw/sintax/$1 0.5 > ../pred/sintax50/$1
+python $r/py/bbc_cutoff.py ../raw/sintax/$1 0.8 > ../pred/sintax80/$1

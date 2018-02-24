@@ -1,0 +1,22 @@
+
+# Metric OCR, RefDB BLAST16S_10 V3-V5 order
+100	99	97	95	90	Method
+.	.	.	.	58.9	BLCA
+.	.	.	.	99.3	CT1
+.	.	.	.	91.8	CT2
+.	.	.	.	50.7	KNN
+.	.	.	.	54.8	Metaxa2
+.	.	.	.	95.2	Q2_BLAST
+.	.	.	.	92.5	Q2_SK
+.	.	.	.	93.8	Q2_VS
+.	.	.	.	72.6	Q1
+.	.	.	.	67.8	RDP50
+.	.	.	.	2.7	RDP80
+.	.	.	.	71.2	SINTAX50
+.	.	.	.	5.5	SINTAX80
+.	.	.	.	62.3	NBC50
+.	.	.	.	4.1	NBC80
+.	.	.	.	100.0	BTOP
+.	.	.	.	100.0	TOP
+.	.	.	.	100.0	KTOP
+.	.	.	.	100.0	Microclass

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+name=$1
+
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+mkdir -p ../raw/spingo
+
+raw=../raw/spingo/$name
+traindir=../train/spingo/$name
+
+mkdir -p $traindir
+
+python2 $r/py/fasta_utax2spingo.py $trainfa > $traindir/db.fa
+
+$spingo -i $testfa -d $traindir/db.fa -p 8 > $raw
+
+mkdir -p ../pred/spingo
+
+python2 /zip_e/r/py/spingo2tab.py $raw > ../pred/spingo/$name

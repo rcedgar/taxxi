@@ -1,0 +1,57 @@
+#!/bin/bash
+
+name=$1
+
+qfa=../testfa/$name
+dbfa=../trainfa/$name
+
+rawdir=../raw/q2v
+mkdir -p $rawdir
+raw=$rawdir/$name
+
+preddir=../pred/q2v
+mkdir -p $preddir
+pred=../pred/q2v/$name
+
+# Must be at same level as scripts/
+tmpdir=../tmp_q2v.$$.$RANDOM
+mkdir -p $tmpdir
+cd $tmpdir
+
+python2 $r/py/fasta_utax2qiime.py $dbfa dbq.fa db-tax.txt
+
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+source activate qiime2-2017.10
+
+qiime tools import \
+  --input-path $qfa \
+  --output-path q-seqs.qza \
+  --type 'FeatureData[Sequence]'
+
+qiime tools import \
+  --input-path dbq.fa \
+  --output-path db-seqs.qza \
+  --type 'FeatureData[Sequence]'
+
+qiime tools import \
+  --type 'FeatureData[Taxonomy]' \
+  --source-format HeaderlessTSVTaxonomyFormat \
+  --input-path db-tax.txt \
+  --output-path db-tax.qza
+
+qiime feature-classifier classify-consensus-vsearch \
+  --i-query q-seqs.qza \
+  --p-threads 10 \
+  --i-reference-reads db-seqs.qza \
+  --i-reference-taxonomy db-tax.qza \
+  --o-classification classifier_output.qza
+
+qiime tools export \
+	classifier_output.qza \
+	--output-dir output_dir
+
+cp -v output_dir/taxonomy.tsv $raw
+
+python2 $r/py/qiime2tax2tab.py $raw > $pred
+rm -rf $tmpdir

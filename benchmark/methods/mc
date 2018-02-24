@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo === not implemented === >> /dev/stderr
+echo === see res/mc/script_cv_edgar.R === >> /dev/stderr

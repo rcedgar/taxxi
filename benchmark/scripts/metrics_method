@@ -1,0 +1,25 @@
+#!/bin/bash
+
+method=$1
+
+if [ x$method == x ] ; then
+	echo Missing method >> /dev/stderr
+	exit 1
+fi
+
+for set in `cat ../info/sets_taxxi.txt`
+do
+	for rank in `cat ../info/ranks.txt`
+	do
+		if [ $rank == s ] ; then
+			if [ `echo $set | sed "-es/sp_.*/SP/"` != SP ] ; then
+				continue
+			fi
+		else
+			if [ $method == spingo ] ; then
+				continue
+			fi
+		fi
+		./metrics1 $set $method $rank
+	done
+done

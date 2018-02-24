@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p ../pred/ktop
+
+$u64 -sintax ../ref/$1 -db ../ref/$1 -strand plus -tabbedout ../pred/ktop/$1 \
+  -self -strand plus -ktop -threads 1

@@ -1,0 +1,22 @@
+
+# Metric OCR, RefDB BLAST16S_10 full-length order
+100	99	97	95	90	Method
+.	.	.	.	71.9	BLCA
+.	.	.	.	98.1	CT1
+.	.	.	.	93.1	CT2
+.	.	.	.	56.2	KNN
+.	.	.	.	41.9	Metaxa2
+.	.	.	.	80.0	Q2_BLAST
+.	.	.	.	78.1	Q2_SK
+.	.	.	.	92.5	Q2_VS
+.	.	.	.	58.1	Q1
+.	.	.	.	94.4	RDP50
+.	.	.	.	50.0	RDP80
+.	.	.	.	41.9	SINTAX50
+.	.	.	.	2.5	SINTAX80
+.	.	.	.	91.2	NBC50
+.	.	.	.	45.6	NBC80
+.	.	.	.	100.0	BTOP
+.	.	.	.	100.0	TOP
+.	.	.	.	100.0	KTOP
+.	.	.	.	100.0	Microclass

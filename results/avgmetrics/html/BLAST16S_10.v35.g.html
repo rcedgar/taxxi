@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TAXXI Benchmark</title>
+
+<style>
+    body {
+        font-family: Helvetica, Arial;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #3b3b3b;
+        font-smoothing: antialiased;
+        background: #c0c0c0;
+    }
+
+    .wrapper {
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 800px;
+        text-align: left;
+    }
+    .tabletitle {
+        font-family: Helvetica, Arial;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #000000;
+        text-align: left;
+		}
+
+    .table {
+        margin: 0 0 10px 0;
+        box-shadow: 0 1px 16px #2980b9;
+        display: table;
+        text-align: center;
+    }
+
+.row {
+    display: table-row;
+    background: #ffffff;
+}
+
+.row:nth-of-type(odd) {
+    background: #e0e0e0;
+}
+
+.row.header {
+    font-weight: 700;
+    color: #ffffff;
+    background: #2980b9;
+}
+
+.yellow_link {
+	text-decoration: underline;
+	background-color: yellow;
+}
+
+@media screen and (max-width: 580px) {
+    .row {
+        padding: 8px 0;
+        display: block;
+    }
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<a class="yellow_link" href="https://drive5.com/taxxi">TAXXI benchmark home</a><br><br>
+<div class="tabletitle">Avg. metrics BLAST16S_10 v35 genus</div><br>
+<div class="table">
+  <div class="row header">
+    <div class="cell">AvgTPR</div>
+    <div class="cell">AvgUCR</div>
+    <div class="cell">AvgMCR</div>
+    <div class="cell">AvgOCR</div>
+    <div class="cell">L1OAcc</div>
+    <div class="cell">AvgAcc</div>
+    <div class="cell">Method</div>
+  </div>
+  <div class="row">
+    <div class="cell">68.3</div>
+    <div class="cell">26.9</div>
+    <div class="cell">4.8</div>
+    <div class="cell">24.2</div>
+    <div class="cell">82.0</div>
+    <div class="cell">59.3</div>
+    <div class="cell">SINTAX50</div>
+  </div>
+  <div class="row">
+    <div class="cell">66.6</div>
+    <div class="cell">28.4</div>
+    <div class="cell">5.0</div>
+    <div class="cell">24.0</div>
+    <div class="cell">-</div>
+    <div class="cell">58.4</div>
+    <div class="cell">RDP80</div>
+  </div>
+  <div class="row">
+    <div class="cell">66.7</div>
+    <div class="cell">28.4</div>
+    <div class="cell">5.0</div>
+    <div class="cell">24.2</div>
+    <div class="cell">78.2</div>
+    <div class="cell">58.3</div>
+    <div class="cell">NBC80</div>
+  </div>
+  <div class="row">
+    <div class="cell">77.5</div>
+    <div class="cell">10.9</div>
+    <div class="cell">11.6</div>
+    <div class="cell">61.9</div>
+    <div class="cell">-</div>
+    <div class="cell">57.0</div>
+    <div class="cell">RDP50</div>
+  </div>
+  <div class="row">
+    <div class="cell">77.1</div>
+    <div class="cell">11.3</div>
+    <div class="cell">11.6</div>
+    <div class="cell">61.9</div>
+    <div class="cell">81.0</div>
+    <div class="cell">56.9</div>
+    <div class="cell">NBC50</div>
+  </div>
+  <div class="row">
+    <div class="cell">65.7</div>
+    <div class="cell">29.9</div>
+    <div class="cell">4.4</div>
+    <div class="cell">26.0</div>
+    <div class="cell">-</div>
+    <div class="cell">56.9</div>
+    <div class="cell">BLCA</div>
+  </div>
+  <div class="row">
+    <div class="cell">81.9</div>
+    <div class="cell">0.0</div>
+    <div class="cell">18.1</div>
+    <div class="cell">100.0</div>
+    <div class="cell">-</div>
+    <div class="cell">54.2</div>
+    <div class="cell">Microclass</div>
+  </div>
+  <div class="row">
+    <div class="cell">76.3</div>
+    <div class="cell">0.0</div>
+    <div class="cell">23.7</div>
+    <div class="cell">100.0</div>
+    <div class="cell">79.6</div>
+    <div class="cell">52.6</div>
+    <div class="cell">KTOP</div>
+  </div>
+  <div class="row">
+    <div class="cell">75.7</div>
+    <div class="cell">0.0</div>
+    <div class="cell">24.3</div>
+    <div class="cell">100.0</div>
+    <div class="cell">-</div>
+    <div class="cell">52.4</div>
+    <div class="cell">BTOP</div>
+  </div>
+  <div class="row">
+    <div class="cell">75.8</div>
+    <div class="cell">0.0</div>
+    <div class="cell">24.2</div>
+    <div class="cell">100.0</div>
+    <div class="cell">79.5</div>
+    <div class="cell">52.3</div>
+    <div class="cell">TOP</div>
+  </div>
+  <div class="row">
+    <div class="cell">50.5</div>
+    <div class="cell">49.1</div>
+    <div class="cell">0.4</div>
+    <div class="cell">8.9</div>
+    <div class="cell">71.0</div>
+    <div class="cell">48.9</div>
+    <div class="cell">SINTAX80</div>
+  </div>
+  <div class="row">
+    <div class="cell">62.8</div>
+    <div class="cell">16.3</div>
+    <div class="cell">20.9</div>
+    <div class="cell">74.1</div>
+    <div class="cell">71.6</div>
+    <div class="cell">45.7</div>
+    <div class="cell">CT1</div>
+  </div>
+  <div class="row">
+    <div class="cell">62.8</div>
+    <div class="cell">16.4</div>
+    <div class="cell">20.7</div>
+    <div class="cell">61.8</div>
+    <div class="cell">-</div>
+    <div class="cell">45.6</div>
+    <div class="cell">Q2_SK</div>
+  </div>
+  <div class="row">
+    <div class="cell">60.7</div>
+    <div class="cell">18.4</div>
+    <div class="cell">20.8</div>
+    <div class="cell">64.7</div>
+    <div class="cell">-</div>
+    <div class="cell">45.1</div>
+    <div class="cell">Q1</div>
+  </div>
+  <div class="row">
+    <div class="cell">29.1</div>
+    <div class="cell">67.7</div>
+    <div class="cell">3.1</div>
+    <div class="cell">12.9</div>
+    <div class="cell">-</div>
+    <div class="cell">26.7</div>
+    <div class="cell">Metaxa2</div>
+  </div>
+  <div class="row">
+    <div class="cell">23.4</div>
+    <div class="cell">66.1</div>
+    <div class="cell">10.4</div>
+    <div class="cell">25.9</div>
+    <div class="cell">-</div>
+    <div class="cell">19.7</div>
+    <div class="cell">Q2_VS</div>
+  </div>
+  <div class="row">
+    <div class="cell">23.2</div>
+    <div class="cell">65.9</div>
+    <div class="cell">11.0</div>
+    <div class="cell">27.1</div>
+    <div class="cell">44.5</div>
+    <div class="cell">19.7</div>
+    <div class="cell">CT2</div>
+  </div>
+  <div class="row">
+    <div class="cell">22.3</div>
+    <div class="cell">67.5</div>
+    <div class="cell">10.2</div>
+    <div class="cell">21.9</div>
+    <div class="cell">-</div>
+    <div class="cell">19.1</div>
+    <div class="cell">Q2_BLAST</div>
+  </div>
+  <div class="row">
+    <div class="cell">2.3</div>
+    <div class="cell">97.7</div>
+    <div class="cell">0.0</div>
+    <div class="cell">1.2</div>
+    <div class="cell">-</div>
+    <div class="cell">2.3</div>
+    <div class="cell">KNN</div>
+  </div>
+
+</div>
+<br>
+</div>
+</body>
+</html>

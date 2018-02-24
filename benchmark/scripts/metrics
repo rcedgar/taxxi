@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for method in `cat ../info/methods_cut_taxxi.txt`
+do
+	./metrics_method $method
+done

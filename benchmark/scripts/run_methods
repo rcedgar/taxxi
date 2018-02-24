@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for method in `cat ../info/methods_raw_taxxi.txt`
+do
+	./run_method $method
+done

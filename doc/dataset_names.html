@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<!--START_MANUAL7_HEAD-->
+<head>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>TAXXI</title>
+    <link rel="stylesheet" type="text/css" href="https://drive5.com/styles11.css">
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50117757-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	<style type="text/css">
+.auto-style1 {
+	background-color: #FFFFFF;
+}
+</style>
+
+</head>
+
+<body style="background-color:#c0c0c0;">
+
+<div style="border: 10px solid white; position:absolute; top:47px; left:20px; width:830px; background-color:#ffffff; " class="ManText">
+<!--END_MANUAL7_HEAD-->
+	<span class="ManTopic">TAXXI dataset names</span>
+<hr>
+	<br>FASTA filenames that start with sp_ have species annotations, otherwise 
+	the lowest rank is genus. Both variants are needed to test species 
+	predictions of methods that give different predictions when trained on 
+	different ranks; e.g. the RDP Classifier because genus is the default 
+	training rank for 16S.<br><br>To ensure compatibility with as many methods 
+	as possible, all taxonomy annotations in a given dataset have exactly the 
+	same set of ranks (no missing ranks and no intermediate ranks such as 
+	sub-order).<br><br>rdp_16s = RDP 16S training set v16<br>ncbi_16s = BLAST16S 
+	(BLAST 16S database)<br>ten_16s = BLAST16S/10 (BLAST 16S database with max 
+	10 sequences per genus)<br>rdp_its = WITS (RDP Warcup training set v2)<br>&nbsp;
+	<br>FIlenames are formatted as <em>s<span class="auto-style1">etname.pctid</span></em><span class="auto-style1"> 
+	or <em>setname_segment</em>.<em>pctid</em> where <em>segment</em> is _v35 or 
+	_v4 to indicate the hypervariable region(s). If no segment is given, the 
+	sequences are full-length.<br>&nbsp; </span>
+</div>
+</body>
+</html>

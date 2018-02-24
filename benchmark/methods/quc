@@ -1,0 +1,23 @@
+#!/bin/bash
+
+name=$1
+
+mkdir -p ../pred/quc
+mkdir -p ../raw/quc
+pred=../pred/quc/$name
+raw=../raw/quc/$name
+
+q=../testfa/$name
+ref=../trainfa/$name
+
+traindir=../train/quc/$name
+rm -rf $traindir
+mkdir -p $traindir
+
+python2 $E/r/py/fasta_utax2qiime.py $ref db.fa tax.txt
+
+assign_taxonomy.py -i $q -m uclust -r db.fa -t tax.txt -o $traindir
+
+/bin/mv -v $traindir/*assignments.txt $raw
+
+python2 $E/r/py/qiimetax2tab.py $raw > $pred

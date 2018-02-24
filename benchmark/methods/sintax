@@ -1,0 +1,28 @@
+#!/bin/bash
+
+name=$1
+
+testfa=../testfa/$name
+trainfa=../trainfa/$name
+
+if [ ! -f $testfa ] ; then
+	echo Not found testfa=$testfa >> /dev/stderr
+	exit 1
+fi
+
+if [ ! -f $trainfa ] ; then
+	echo Not found trainfa=$trainfa >> /dev/stderr
+	exit 1
+fi
+
+mkdir -p ../raw/sintax
+
+raw=../raw/sintax/$name
+
+$u64 -sintax $testfa -db $trainfa -strand plus -tabbedout $raw
+
+mkdir -p ../pred/sintax50
+mkdir -p ../pred/sintax80
+
+bbc_cutoff.py $raw 0.5 > ../pred/sintax50/$name
+bbc_cutoff.py $raw 0.8 > ../pred/sintax80/$name

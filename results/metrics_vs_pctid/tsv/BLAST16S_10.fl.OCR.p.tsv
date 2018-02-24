@@ -1,0 +1,22 @@
+
+# Metric OCR, RefDB BLAST16S_10 full-length phylum
+100	99	97	95	90	Method
+.	.	.	.	.	BLCA
+.	.	.	.	.	CT1
+.	.	.	.	.	CT2
+.	.	.	.	.	KNN
+.	.	.	.	.	Metaxa2
+.	.	.	.	.	Q2_BLAST
+.	.	.	.	.	Q2_SK
+.	.	.	.	.	Q2_VS
+.	.	.	.	.	Q1
+.	.	.	.	.	RDP50
+.	.	.	.	.	RDP80
+.	.	.	.	.	SINTAX50
+.	.	.	.	.	SINTAX80
+.	.	.	.	.	NBC50
+.	.	.	.	.	NBC80
+.	.	.	.	.	BTOP
+.	.	.	.	.	TOP
+.	.	.	.	.	KTOP
+.	.	.	.	.	Microclass

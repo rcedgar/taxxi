@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir -p ../raw/nbc
+mkdir -p ../pred/nbc0
+mkdir -p ../pred/nbc50
+mkdir -p ../pred/nbc80
+
+$u64 -nbc_l1o ../ref/$1 -tabbedout ../raw/nbc/$1 -threads 6
+
+python $r/py/bbc_cutoff.py ../raw/nbc/$1 0.0 > ../pred/nbc0/$1
+python $r/py/bbc_cutoff.py ../raw/nbc/$1 0.5 > ../pred/nbc50/$1
+python $r/py/bbc_cutoff.py ../raw/nbc/$1 0.8 > ../pred/nbc80/$1

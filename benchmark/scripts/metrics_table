@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p ../results
+
+cat ../metrics/* > ../results/metrics_table.txt
